@@ -10,6 +10,7 @@ const saveStorageBtn = document.getElementById('save-storage');
 const loadStorageBtn = document.getElementById('load-storage');
 const clearStorageBtn = document.getElementById('clear-storage');
 const downloadBtn = document.getElementById('download');
+const brushTime=1500;
 const { body } = document;
 
 // Global Variables
@@ -61,6 +62,7 @@ eraser.addEventListener('click', () => {
   currentSize = 50;
 });
 
+
 // Switch back to Brush
 function switchToBrush() {
   isEraser = false;
@@ -71,7 +73,11 @@ function switchToBrush() {
   currentSize = 10;
   brushSlider.value = 10;
   displayBrushSize();
+  
+}
 
+function brushTimeSetTimeout(ms) {
+  setTimeout(switchToBrush, ms);
 }
 
 // Create Canvas
@@ -90,7 +96,7 @@ clearCanvasBtn.addEventListener('click', () => {
   drawnArray = [];
   // Active Tool
   activeToolEl.textContent = 'Canvas Cleared';
-  setTimeout(switchToBrush, 1500);
+  brushTimeSetTimeout(brushTime);
 });
 
 // Draw what is stored in DrawnArray
@@ -169,41 +175,49 @@ canvas.addEventListener('mouseup', () => {
   console.log('mouse is unclicked');
 });
 
-// // Save to Local Storage
-// saveStorageBtn.addEventListener('click', () => {
+// Save to Local Storage
+saveStorageBtn.addEventListener('click', () => {
+  localStorage.setItem('savedCanvas', JSON.stringify(drawnArray));
 
-//   // Active Tool
-//   activeToolEl.textContent = 'Canvas Saved';
-//   setTimeout(switchToBrush, 1500);
-// });
+  // Active Tool
+  activeToolEl.textContent = 'Canvas Saved';
+  brushTimeSetTimeout(brushTime);
+});
 
-// // Load from Local Storage
-// loadStorageBtn.addEventListener('click', () => {
-//   if (localStorage.) {
-//     drawnArray = JSON(localStorage.);
+// Load from Local Storage
+loadStorageBtn.addEventListener('click', () => {
+  if (localStorage.getItem('savedCanvas')) {
+    drawnArray = JSON.parse(localStorage.savedCanvas);
+    restoreCanvas();
 
-//   // Active Tool
-//     activeToolEl.textContent = 'Canvas Loaded';
-//     setTimeout(switchToBrush, 1500);
-//   } 
+  // Active Tool
+    activeToolEl.textContent = 'Canvas Loaded';
+    brushTimeSetTimeout(brushTime);
+  } else{
+    activeToolEl.textContent = 'No Canvas Found';
 
-// });
 
-// // Clear Local Storage
-// clearStorageBtn.addEventListener('click', () => {
+  }
 
-//   // Active Tool
-//   activeToolEl.textContent = 'Local Storage Cleared';
-//   setTimeout(switchToBrush, 1500);
-// });
+});
 
-// // Download Image
-// downloadBtn.addEventListener('click', () => {
+// Clear Local Storage
+clearStorageBtn.addEventListener('click', () => {
+  localStorage.removeItem('savedCanvas');
 
-//   // Active Tool
-//   activeToolEl.textContent = 'Image File Saved';
-//   setTimeout(switchToBrush, 1500);
-// });
+  // Active Tool
+  activeToolEl.textContent = 'Local Storage Cleared';
+  brushTimeSetTimeout(brushTime);
+});
+
+// Download Image
+downloadBtn.addEventListener('click', () => {
+  downloadBtn.href = canvas.toDataURL('image/jpeg',1);
+  downloadBtn.download = 'my-canvas.jpeg';
+  // Active Tool
+  activeToolEl.textContent = 'Image File Saved';
+  brushTimeSetTimeout(brushTime);
+});
 
 // // Event Listener
 brushIcon.addEventListener('click', switchToBrush);
