@@ -1,13 +1,47 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/ed6de97e-8d08-4a43-8dcb-8f932a407005/deploy-status)](https://app.netlify.com/sites/paintc/deploys)
-# Paint-Clone
-The Paint Clone is created using canvas, each element to allow us to create a basic version of MS Paint.<br>
-At the top, there is a toolbar with a series of font awesome icons if we hover over them, we have a title that comes up explaining what they do.<br>
-So, there is a brush, background color, an eraser which clear the canvas. When we hover over eraser It turns red to indicate that it's a destructive action.<br>
-There is a local storage, load from local storage, clear local storage and also save an image.<br>
-On the left side of the toolbar there is a status showing brush, which is intended to show which tools is active, either the brush or the eraser and it also shows us some info when we click on one of these other buttons so far, to click save to local storage, it switches to a message that says canvas saved.<br>
-I've also added a custom color input called JS Color to make sure that it looks the same regardless of browser or operating system. If we go into our background color and we click on any one color, it instantly changes the background of the canvas.<br>
-On the left there is a brush and a slider. So the slider is allowing us to change the size of the brush upto 50px and can change the color as well.<br>
-It is not responsive for devices which are smaller than 800px.
 
-![image](https://user-images.githubusercontent.com/60316890/180756475-9dd8bb76-953e-4a77-995a-1b6de7f1c057.png)
+# Paint Clone
 
+The Paint Clone is a web-based application that replicates the basic functionality of popular painting software like MS Paint. It provides users with a variety of tools and features to create digital artwork, drawings, and sketches directly within their web browser. From brush tools to color selection and saving options, this application offers a familiar and intuitive experience for users to unleash their creativity.
+
+### Features
+
+- **Brush Tools:** Use different brush sizes and shapes to create strokes of varying thickness and styles.
+- **Color Selection:** Choose colors from a color palette or use the custom color input to select any color for your artwork.
+- **Eraser:** Clear mistakes or unwanted portions of your artwork with the eraser tool. The eraser turns red when hovered over to indicate its function.
+- **Local Storage:** Save your current canvas state to local storage, load from local storage, or clear local storage as needed.
+- **Save Image:** Save your artwork as an image file for sharing or future reference.
+- **Status Indicator:** The status indicator on the toolbar displays which tool is currently active (brush or eraser) and provides additional information when certain actions are performed.
+- **Custom Color Input:** Utilizes the JS Color plugin for consistent color selection across different browsers and operating systems.
+- **Background Color:** Change the background color of the canvas instantly by selecting a color from the palette.
+- **Brush Size Slider:** Adjust the size of the brush stroke using a slider, with sizes ranging up to 50px.
+- **Responsive Design:** While the application is not fully responsive for smaller devices, it offers a seamless experience on screens larger than 800px.
+
+### Screenshots
+
+*Screenshot 1: Paint Clone - Main Canvas*
+![Screenshot (50)](https://github.com/surajkumar345678/Paint-Clone/assets/60316890/1c80e298-edf8-4d0f-9df8-be163fa2d729)
+
+
+
+### Demo
+
+Explore the [live demo](https://paintc.netlify.app/) to experience the Paint Clone application yourself.
+
+### Usage
+
+To use the Paint Clone application, simply visit the provided [demo website](https://paintc.netlify.app/) and start creating your artwork. Hover over the toolbar icons to view tooltips explaining their functions. Use the various tools, adjust settings, and save your masterpiece with ease.
+
+### Contributing
+
+Contributions to the project are welcome! If you have any suggestions, bug reports, or feature requests, feel free to open an issue or submit a pull request on the GitHub repository.
+
+### License
+
+This project is not licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+
+
+
+---
+Feel free to customize and expand upon this README file to better suit your project's specific details and requirements.
